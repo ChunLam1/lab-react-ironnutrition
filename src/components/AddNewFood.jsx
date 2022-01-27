@@ -17,9 +17,9 @@ import React, { useState } from "react";
         const newFood = { name, calories, image };
         console.log("Submitted: ", newFood);
         addFood(newFood)
-        // setName("");
-        // setCalories("");
-        // setImage("");
+        setName("");
+        setCalories("");
+        setImage("");
 
     }
    return (
