@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const FoodBox = ({ food }) => {
+const FoodBox = (({ food, sendMenu }) => {
   const [quantity, setQuantity] = useState(1);
   const handleQuantityInput = (e) => setQuantity(e.target.value);
 
@@ -33,11 +33,13 @@ const FoodBox = ({ food }) => {
                   type="number"
                   value={quantity}
                   onChange={handleQuantityInput}
-                  min="0"
+                  min="1"
                 />
               </div>
               <div className="control">
-                <button className="button is-info" onClick={addToMenu}>
+                <button className="button is-info" onClick={() => {
+                    sendMenu(food, quantity);
+                  }}>
                   +
                 </button>
               </div>
@@ -47,6 +49,6 @@ const FoodBox = ({ food }) => {
       </div>
     </div>
   );
-};
+});
 
 export default FoodBox;

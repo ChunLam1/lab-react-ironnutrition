@@ -15,8 +15,9 @@ function App() {
   const [menu, setMenu] = useState([]);
 
   const sendMenu = (food) => {
-    // setMenu([...menu, menuItem])
-  };
+    setMenu([...menu, food]);
+  }
+
 
   const addFood = (food) => {
     setFoods([...foods, food]);
@@ -44,7 +45,7 @@ function App() {
       <TodaysFood menu={menu} menuCallback={setMenu} />
       {isDisplay && <AddNewFood addFood={addFood} />}
       {searchedFoods.map((food) => (
-        <FoodBox food={food} />
+        <FoodBox food={food} sendMenu={sendMenu} />
       ))}
     </div>
   );
